@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <?php echo "Merhaba Dünya!"; ?>
+    </body>
+</html>
+
+
+
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <?php echo "Merhaba Dünya!"; ?>
+        <?php print "Merhaba Dünya!"; ?>
+    </body>
+</html>
+
+
+Değişken Adları
+Değişkenler $ ile başlar
+
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <?php 
+        $say1 = 10;
+        echo $say1;
+        $ifade = "Merhaba dünya";
+        echo $ifade;
+        ?>
+    </body>
+</html>
+
+
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <?php 
+        $degisken = "Merhaba Dünya";
+        echo $degisken;
+        echo $degisken . "Yeni yine yeniden";
+        ?>
+        <br/>
+        <?php
+        echo `$degisken yeniden`
+        ?>
+    </body>
+</html>
+
+
+<html>
+    <head>
+        <title>String İşlemler</title>
+    </head>
+    <body>
+        <?php 
+        $ilk_ifade = "Yeni Yılınız";
+        $ikinci_ifade = "Kutlu Olsun";
+        ?>
+        <?php
+        $ucuncu_ifade = $ilk_ifade;
+        $ucuncu_ifade .= $ikinci_ifade;
+        echo $ucuncu_ifade;
+        ?>
+    </body>
+</html>
+
+echo strtolower($ucuncu_ifade)  Bütün harfleri küçük yapar.
+echo strtoupper($ucuncu_ifade)  Bütün harfleri büyük yapar.
+echo ucfirst($ucuncu_ifade) Bütün cümlelerin ilk harfini büyük yapar.
+echo ucwords($ucuncu_ifade) Bütün kelimelerin ilk harflerini büyük yapar.
+
+Değişkenler sayılar
+<body>
+<?php $say1 = 3; $say2 = 4; ?>
+
+<?php
+echo ((1+2+$say1)*$say2)/2-5
+?>
+</body>
+
+$say2+=4; echo $say2;
+    <?php $say2-=4; echo $say2;?> <br/>
+    <?php $say2*=4; echo $say2;?> <br/>
+    <?php $say2/=4; echo $say2;?> <br/>
+
+$say2++ ve $say-- ile değerini bir arttırabilir.azaltabilir.
+
+Diziler
+$ay = array("Ocak", "Şubat", "Mart", "Nisan",
+"Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül",
+"Ekim", "Kasım", "Aralık");
+
+
+
+echo $ay[2];
+echo count($ay);
+
+Operator
+&&  Ve
+||  Veya
+==  Eşittir
+!   Değil
+!=  Eşit Değil
+>   Büyüktür
+<   Küçüktür
+>=  Büyük veya Eşittir
+<=  Küçük veya Eşittir
+
+
+Superglobal değer okuma
+<a href="iletisim.php?id=1"> İletişim Sayfası <a>
+
+iletişim.php
+
+Hoş Geldiniz Kullanıcı Adınız: <?php echo $_GET["id"]; ?>.<br />?
+
+
+Form Yönetimi
+<form action="anasayfa.php" method="post">
+Ad : <input type="text" name="ad"/>
+Şifre : <input type="text" name="sifre"/>
+<input type="submit" value="Gönder"/>    
+</form>
+
+Anasayfa İçerisinde
+Ekrana yazmak
+$kullaniciAdi= $_POST['ad'];
+$sifre = $_POST['sifre'];
+echo "{$username}: {$sifre}";
+
+
+Çerezler
+Setcookie ($çerezAdi, $cerezDegeri, $bitecegiTarih)
+
+Çerezin ne kadar varolacağını belirtebilirsiniz.
+<?php
+setcookie('test', 45, time()+(60*60*24*7));
+?>
+
+Çerezin Nasıl Okunacağı
+<?php
+$degisken =$_COOKIE['test'];
+echo $degisken;
+?>
+
+<?php
+setcookie("user", "", time()-3600);
+?>
+
+Çerezlerde oturum kullanma
+<?php
+setcookie('test', 0, time()-(60*60*24*7));
+?>
+
+Oturum Başlatma(HTMLden önce)
+<?php
+session_start();
+?>
+
+
+<?php
+$_SESSION['ad']="oturumAd";
+?>
+<?php
+echo $_SESSION['ad'];
+?>
+
+
+Farklı Oturumlar
+$_SESSION['yas']="kullanıcının yaşı";
+$_SESSION['adres']="kullanıcının adresi";
+
+
+Header kullanımı
+<?php
+header("http/1.0 404 Sayfa bulunamadı");
+exit;
+?>
+<html>
+<body>
+</body>
+</html>
+
+
+Oturum açmayan kullanıcı yönlendirilirken;
+<?php
+header("Location: login.html");
+exit;?
+?>
+
